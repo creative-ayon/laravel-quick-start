@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,23 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+
+    //temp for setting role and permission section in admin
+    Route::get('admin/dashboard',[DashboardController::class,'index'])->name('admin.dashboard');
+
+
+
+    Route::middleware(['permission'])->prefix('/admin')->group(function () {
+
+        Route::get('/',[DashboardController::class,'index'])->name('admin.home'); //clone of dashboard
+
+       // Route::get('/dashboard',[DashboardController::class,'index'])->name('admin.dashboard');
+
+    });
+
+
+
 });
+
+
