@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\Permission\PermissionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,8 @@ Route::middleware([
 
     //temp for setting role and permission section in admin
     Route::get('admin/dashboard',[DashboardController::class,'index'])->name('admin.dashboard');
+    Route::get('admin/permission',[PermissionController::class,'index'])->name('admin.permission');
+    Route::get('admin/roles',[PermissionController::class,'roles'])->name('admin.roles');
 
 
 

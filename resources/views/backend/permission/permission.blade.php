@@ -1,0 +1,1 @@
+Haha, Blade template file created.
