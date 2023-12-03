@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Permission\PermissionController;
+use App\Http\Controllers\Backend\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,17 +31,14 @@ Route::middleware([
 
 
     //temp for setting role and permission section in admin
-    Route::get('admin/dashboard',[DashboardController::class,'index'])->name('admin.dashboard');
-    Route::get('admin/permission',[PermissionController::class,'index'])->name('admin.permission');
-    Route::get('admin/roles',[PermissionController::class,'roles'])->name('admin.roles');
-
-
 
     Route::middleware(['permission'])->prefix('/admin')->group(function () {
 
-        Route::get('/',[DashboardController::class,'index'])->name('admin.home'); //clone of dashboard
-
-       // Route::get('/dashboard',[DashboardController::class,'index'])->name('admin.dashboard');
+        Route::get('/', [DashboardController::class, 'index'])->name('admin.home');
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard'); //clone 
+        Route::get('users', [UserController::class, 'index'])->name('admin.users');
+        Route::get('permission', [PermissionController::class, 'index'])->name('admin.permission');
+        Route::get('roles', [PermissionController::class, 'roles'])->name('admin.roles');
 
     });
 

@@ -118,6 +118,9 @@ class Roles extends Component
             Role::findOrFail($this->roleId)->update([
                 'name' => $this->roleName,
             ]);
+            
+            $this->reset();
+
         } catch (\Exception $e) {
             $this->dispatchBrowserEvent('swal:error', [
                 'type' => 'error',

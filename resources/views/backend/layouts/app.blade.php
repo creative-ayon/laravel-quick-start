@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,6 +13,7 @@
     <link href="{{asset('assets/dist/css/tabler-payments.min.css?v=').env('APP_VERSION')}}" rel="stylesheet"/>
     <link href="{{asset('assets/dist/css/tabler-vendors.min.css?v=').env('APP_VERSION')}}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+    <link href="{{asset('assets/dist/css/style.css?v=').env('APP_VERSION')}}" rel="stylesheet"/>
     <style>
       @import url('https://rsms.me/inter/inter.css');
       :root {
@@ -23,7 +25,6 @@
     </style>
   </head>
   <body >
-    <script src="{{asset('assets/dist/js/demo-theme.min.js?v=').env('APP_VERSION')}}"></script>
     <div class="page">
       <!-- Sidebar -->
       @include('backend.layouts.sidebar')
@@ -37,6 +38,11 @@
     </div>
     <!-- Tabler Core -->
     <script src="{{asset('assets/dist/js/tabler.min.js?v=').env('APP_VERSION')}}" defer></script>
+    @include('sweetalert::alert')
+    @stack('modals')
+    @stack('scripts')
     @livewireScripts
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <x-livewire-alert::scripts />
   </body>
 </html>

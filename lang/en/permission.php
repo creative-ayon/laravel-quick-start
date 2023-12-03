@@ -19,5 +19,10 @@ return [
     'edit_role' => 'Edit Role',
     'delete_role' => 'Delete Role',
     'enter_role_name' => 'Enter Role Name',
+    'add_edit_permission' => 'Manage Permissions',
+    'select_role' => 'Select Role',
+    'permissions' => 'Permissions',
+    'add_permission' => 'Add Permission',
+    'select_permission' => 'Select Permission',
 
 ];

@@ -9,7 +9,7 @@
 
 				<div class="col-auto ms-auto d-print-none">
 					<span class="d-none d-sm-inline">
-						<input type="text" class="form-control" wire:model='search' placeholder="Search here">
+						<input type="text" class="form-control" wire:model.live='search' placeholder="Search here">
 					</span>
 				</div>
 			</div>
@@ -35,7 +35,7 @@
 
 									<tr>
 										<td>{{ $roles->firstItem() + $id }}.</td>
-										<td>{!! strtoupper($role->name) !!}</td>
+										<td>{!! $role->name !!}</td>
 										<td class="text-end">
 											<button class="btn btn-primary mx-2 p-1 fs-6" wire:click='editDetails({{ $role->id }})'><i class="ti ti-pencil"></i></button>
 										</td>

@@ -1,4 +1,4 @@
 @extends('backend.layouts.app')
 @section('content')
-@livewire('backend.permission.permissions')
+@livewire('backend.user.users')
 @endsection
